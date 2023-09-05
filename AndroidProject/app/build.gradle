@@ -1,0 +1,96 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.pimax.vrshell"
+        minSdkVersion 29
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0.2023081702"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        /*改为推一个文件到 /sdcard/device_config.json 来配置是否启用各种属性
+        {
+            "enable_svr": false, //true为启用双目，否则用单目
+            "enable_pxr": true,  //是否启用PxrManager, 设备上用true
+            "enable_sensor": false, //是否启用手机sensor，设备上用false
+            "aim_duration": 10      //头瞄时长
+        }*/
+        //buildConfigField("Boolean", "enableMainCamera", "true") //设备上运行设置false, 手机上运行设置true
+    }
+    signingConfigs {
+        config {
+            keyAlias 'platform'
+            keyPassword '12345678'
+            storeFile file(rootDir.getAbsolutePath() +'/sign/platform.keystore')
+            storePassword '12345678'
+        }
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.config
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src\\main\\cpp\\CMakeLists.txt')
+        }
+    }
+
+    ndkVersion "20.0.5594570"
+
+}
+
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        Set<File> fileSet = options.bootstrapClasspath.getFiles()
+        List<File> newFileList =  new ArrayList<>();
+        newFileList.add(new File(getRootDir().path + "/app/libs/framework.jar"))
+        newFileList.addAll(fileSet)
+        println("-----------------------------------------------------------------")
+        options.bootstrapClasspath = files(
+                newFileList.toArray()
+        )
+    }
+}
+
+gradle.projectsEvaluated {
+    System.out.println("Hello")
+    //此处需改为自己的路
+    def imlFile = file(getRootDir().path + "/.idea/modules/app/" + "/NativeAndroidApp.app.iml")
+    println(getRootDir().path + "/.idea/modules/app/" + "/NativeAndroidApp.app.iml")
+    try {
+        def parsedXml = (new XmlParser()).parse(imlFile)
+        def jdkNode = parsedXml.component[1].orderEntry.find { it.'@type' == 'jdk' }
+        parsedXml.component[1].remove(jdkNode)
+        System.out.println("222"+" "+getRootDir().path + "/.idea/modules/app/" + "/NativeAndroidApp.app.iml")
+        def sdkString = "Android API " + 31 + " Platform"
+        println 'what' + sdkString
+        new Node(parsedXml.component[1], 'orderEntry', ['type': 'jdk', 'jdkName': sdkString, 'jdkType': 'Android SDK'])
+        groovy.xml.XmlUtil.serialize(parsedXml, new FileOutputStream(imlFile))
+    } catch (FileNotFoundException e) {
+        // nop, iml not found
+        println "no iml found"
+    }
+}
+
+dependencies {
+    compileOnly files('libs/framework.jar')
+    compileOnly files('libs/fuji_game_boot.jar')
+    api files('libs/gson-2.9.0.jar')
+    implementation project(':unityLibrary')
+    implementation fileTree(dir: project(':unityLibrary').getProjectDir().toString() + ('\\libs'), include: ['*.jar'])
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

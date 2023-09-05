@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "2df55eab",
         "name": "com.pimax.boxworld",
-        "processId": 1659,
+        "processId": 14361,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -703,6 +703,18 @@
             "name": "com.pimax.boxworld",
             "processId": 1659,
             "exited": false
+        },
+        {
+            "deviceId": "2df55eab",
+            "name": "com.pimax.boxworld",
+            "processId": 6540,
+            "exited": false
+        },
+        {
+            "deviceId": "2df55eab",
+            "name": "com.pimax.boxworld",
+            "processId": 14361,
+            "exited": false
         }
     ],
     "m_Tags": {
@@ -756,7 +768,7 @@
         "Behavior": 0
     },
     "m_FilterOptions": {
-        "m_Filter": "Layer",
+        "m_Filter": "Overlay",
         "m_UseRegularExpressions": false,
         "m_MatchCase": false
     },

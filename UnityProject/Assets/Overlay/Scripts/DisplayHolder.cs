@@ -11,7 +11,6 @@ public class DisplayHolder : MonoBehaviour
     public int VD_WIDTH = 2880;
     public int VD_HEIGHT = 1600;
 
-
     #region nativeFunction
     AndroidJavaObject nativeDisplayHolder;
 #if UNITY_ANDROID
@@ -38,7 +37,7 @@ public class DisplayHolder : MonoBehaviour
     {
         Debug.Log("DisplayHolder ----- Awake");
 #if UNITY_ANDROID && !UNITY_EDITOR
-        nativeDisplayHolder = new AndroidJavaObject("com.pimax.boxworld.holder.DisplayHolder");
+        nativeDisplayHolder = new AndroidJavaObject("com.pimax.vrshell.vd.holder.DisplayHolder");
         Debug.Log(nativeDisplayHolder==null?"Start nativeDisplayHolder is null":"Start nativeDisplayHolder success");
 #endif
     }
@@ -77,7 +76,7 @@ public class DisplayHolder : MonoBehaviour
             }
         } else {
             // entry only once
-            Debug.Log("DisplayHolder create external 2dtexture");
+            Debug.Log("DisplayHolder create external 2dtextureID = " + textureId);
             texture = Texture2D.CreateExternalTexture(VD_WIDTH, VD_HEIGHT, TextureFormat.ARGB32, false, false, (System.IntPtr)textureId);
             texture.wrapMode = TextureWrapMode.Clamp;
             texture.filterMode = FilterMode.Bilinear;
