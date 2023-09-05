@@ -200,7 +200,7 @@ public class SvrOverlay : MonoBehaviour, IComparable<SvrOverlay>
                     break;
 
                 case eType.EglTexture:
-                    overlayTextureIds[i] = 0;
+                    //overlayTextureIds[i] = 0;
                     break;
             }
         }

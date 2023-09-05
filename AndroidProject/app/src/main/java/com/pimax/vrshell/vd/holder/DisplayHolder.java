@@ -133,6 +133,8 @@ public class DisplayHolder {
      * Call by Unity Update
      */
     public void updateTexture2D() {
+        if (sLogCount%100 == 0) Log.d(TAG, "updateTexture2D --> mTextureOES.draw(mMVPMatrix)");
+        sLogCount++;
         synchronized (this) {
             if (mFrameUpdated) {
                 mFrameUpdated = false;
@@ -143,6 +145,10 @@ public class DisplayHolder {
             mSurfaceTexture.updateTexImage();
             float[] transform = new float[16];
             mSurfaceTexture.getTransformMatrix(transform);
+
+            if(isOesTexture) {
+                return;
+            }
 
             Matrix.setIdentityM(mMVPMatrix, 0);
             int currentRotation = Surface.ROTATION_0;
@@ -166,8 +172,6 @@ public class DisplayHolder {
         GLES32.glViewport(0, 0, VD_SCREEN_WIDTH, VD_SCREEN_HEIGHT);
         mTextureOES.draw(mMVPMatrix);
         mFBO.FBOEnd();
-        if (sLogCount%100 == 0) Log.d(TAG, "updateTexture2D --> mTextureOES.draw(mMVPMatrix)");
-        sLogCount++;
     }
 
     private void startQQ() {
