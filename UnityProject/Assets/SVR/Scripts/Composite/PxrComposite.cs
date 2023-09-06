@@ -152,7 +152,7 @@ namespace Pxr.Composite
                 Debug.Log(string.Format(TAG + " ::` >> Composite Vertex [{0}, {1}, {2}] [{3}, {4}, {5}]", m_vertexs[6], m_vertexs[7], m_vertexs[8], m_vertexs[9], m_vertexs[10], m_vertexs[11]));
                 Debug.Log(string.Format(TAG + " ::` >> Composite Indice [{0}, {1}, {2}] [{3}, {4}, {5}]", m_indices[0], m_indices[1], m_indices[2], m_indices[3], m_indices[4], m_indices[5]));
                 Debug.Log(string.Format(TAG + " ::` >> Composite UV     [{0}, {1}] [{2}] [{3}]  [{4}, {5}] [{6}, {7}]", m_uv[0], m_uv[1], m_uv[2], m_uv[3], m_uv[4], m_uv[5], m_uv[6], m_uv[7]));
-                SvrPlugin.Instance.InitCompositeLayerMesh(compositeID_str, layerID, isOESTexture, (int)compositeType, m_vertexs.Length, m_vertexs, m_indices.Length, m_indices, m_uv);
+                //SvrPlugin.Instance.InitCompositeLayerMesh(compositeID_str, layerID, isOESTexture, (int)compositeType, m_vertexs.Length, m_vertexs, m_indices.Length, m_indices, m_uv);
                 isMeshInit = true;
             }
         }
@@ -238,8 +238,8 @@ namespace Pxr.Composite
 
         public void DrawLayer()
         {
-            SvrPlugin.Instance.DrawCompositeLayer(compositeID_str, layerID, m_textureID.ToInt32(), m_textureID, texture_format, texture_width, texture_height, m_modelScale, m_modelRotation, m_modelTrans, m_cameraRotation, m_cameraPosition, m_cameraRotation, m_cameraPosition, m_camera_near, m_camera_far, colorScale_override, colorOffset_override);
-            SvrPlugin.Instance.SetCompositeLayerRender(compositeID_str, isVisable);
+            //SvrPlugin.Instance.DrawCompositeLayer(compositeID_str, layerID, m_textureID.ToInt32(), m_textureID, texture_format, texture_width, texture_height, m_modelScale, m_modelRotation, m_modelTrans, m_cameraRotation, m_cameraPosition, m_cameraRotation, m_cameraPosition, m_camera_near, m_camera_far, colorScale_override, colorOffset_override);
+            //SvrPlugin.Instance.SetCompositeLayerRender(compositeID_str, isVisable);
         }
 
         public virtual void UpdateCameraInfo(Camera camera)
@@ -269,7 +269,7 @@ namespace Pxr.Composite
         public void Destroy()
         {
             Debug.Log(string.Format(TAG + "Destroy Composite {0}", compositeID_str));
-            SvrPlugin.Instance.RemoveCompositeLayer(compositeID_str);
+            //SvrPlugin.Instance.RemoveCompositeLayer(compositeID_str);
             m_textureID = IntPtr.Zero;
         }
     }

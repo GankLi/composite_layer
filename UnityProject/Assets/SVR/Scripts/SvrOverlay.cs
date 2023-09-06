@@ -156,8 +156,6 @@ public class SvrOverlay : MonoBehaviour, IComparable<SvrOverlay>
         if (imageCamera == null) imageCamera = gameObject.GetComponent<Camera>();
         Debug.Assert(imageCamera != null, "ImageCamera object required");
         mainCameras = imageCamera.GetComponentsInChildren<Camera>();
-
-        Debug.LogFormat("Overlay[{0}] Camera Count[{1}]", side, mainCameras.Length);
     }
 
     void Start()
@@ -193,10 +191,7 @@ public class SvrOverlay : MonoBehaviour, IComparable<SvrOverlay>
                     break;
 
                 case eType.StandardTexture:
-                    if (imageTexture)
-                    {
-                        overlayTextureIds[i] = imageTexture.GetNativeTexturePtr().ToInt32();
-                    }
+                    if (imageTexture) overlayTextureIds[i] = imageTexture.GetNativeTexturePtr().ToInt32();
                     break;
 
                 case eType.EglTexture:
@@ -252,8 +247,8 @@ public class SvrOverlay : MonoBehaviour, IComparable<SvrOverlay>
         //Debug.Log("Projection Matrix: " + viewCamera.projectionMatrix.ToString());
         //Debug.Log("MVP        Matrix: " + MVP.ToString());
         //Debug.Log("-------------End UpdateCoords-------------");
-        Debug.Log("---Overlay (" + worldUpperLeft.x + "," + worldUpperLeft.y + ") (" + worldUpperRight.x + "," + worldUpperRight.y + ")----");
-        Debug.Log("---Overlay (" + worldLowerLeft.x + "," + worldLowerLeft.y + ") (" + worldLowerRight.x + "," + worldLowerRight.y + ")----");
+        //Debug.Log("---Overlay (" + worldUpperLeft.x + "," + worldUpperLeft.y + ") (" + worldUpperRight.x + "," + worldUpperRight.y + ")----");
+        //Debug.Log("---Overlay (" + worldLowerLeft.x + "," + worldLowerLeft.y + ") (" + worldLowerRight.x + "," + worldLowerRight.y + ")----");
 
         clipLowerLeft = MVP * worldLowerLeft;
         clipUpperLeft = MVP * worldUpperLeft;

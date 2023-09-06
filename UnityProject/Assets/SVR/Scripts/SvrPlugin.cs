@@ -369,10 +369,6 @@ public abstract class SvrPlugin
     public virtual void SetBoundaryDisable(bool disable) { }
     public virtual bool AnchorRemoveAllFiles() { return true; }
     public virtual void GetBoundaryPlayArea(ref float minX, ref float maxX, ref float minY, ref float maxY, ref float minZ, ref float maxZ, ref float visibilityRadius) {}
-    public virtual void InitCompositeLayerMesh(string overlayID_str, int layerID, bool is_android_oes_texture, int overlayType, int vertexsCount, float[] modelVertexs, int indicesCount, int[] modelIndices, float[] modelUV) {}
-    public virtual void DrawCompositeLayer(string overlayID_str, int layerID, int TextureID, IntPtr vkImage, int texture_type, int width, int height, float[] modelScale, float[] modelRotation, float[] modelTrans, float[] leftCameraRot, float[] leftCameraPos, float[] rightCameraRot, float[] rightCameraPos, float near, float far, float[] colorScale, float[] colorOffset) { }
-    public virtual void RemoveCompositeLayer(string overlayID_str) { }
-    public virtual void SetCompositeLayerRender(string overlayID_str, bool isVisible) { }
-    public virtual void SetCompositeLayerRenderQuality(float coefficient) { }
+    public virtual void SetTrackingSpace(int targetSpace) { }
 }
 

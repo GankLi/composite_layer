@@ -24,7 +24,7 @@ public class SvrEye : MonoBehaviour, IComparable<SvrEye>
     public OnOccludeRenderCallback OnOccludeRenderListener;
 
     [Tooltip("Layer depth stack")]
-    public int layerDepth = 1; // 1 for Alpha
+    public int layerDepth = 0;
     [Tooltip("Image display transform")]
     public Camera imageCamera;
     [Tooltip("Image type: 0/Camera render target, 1/Texture 2d, 2/External egl")]
@@ -47,7 +47,7 @@ public class SvrEye : MonoBehaviour, IComparable<SvrEye>
     public SvrPlugin.EyeMask side = SvrPlugin.EyeMask.kBoth;
 
     private float fovMargin = 0f;
-    private RenderTextureFormat format = RenderTextureFormat.ARGB64;
+    private RenderTextureFormat format = RenderTextureFormat.Default;
     private Vector2 resolution = new Vector2(1024.0f, 1024.0f);
     private float resolutionScaleFactor = 1.0f;
     private int antiAliasing = 1;

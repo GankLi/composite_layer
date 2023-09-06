@@ -232,26 +232,10 @@ class SvrPluginAndroid : SvrPlugin
     private static extern void PvrGetBoundaryPlayArea(ref float minX, ref float maxX, ref float minY, ref float maxY, ref float minZ, ref float maxZ, ref float visibilityRadius);
     //---------------------------------------------------------------------------------------------
 
-    //Overlay and Underlay Api
+    //Tracking Space
     //---------------------------------------------------------------------------------------------
     [DllImport("svrplugin")]
-    private static extern void PvrSetCompositeLayerParameter(string overlayID_str, int id,
-                int texId, IntPtr vkImage, int texture_type, int width, int height, float[] worldScale, float[] worldRot,
-                float[] worldTrans, float[] leftCameraRot, float[] leftCameraPos, float[] rightCameraRot,
-                float[] rightCameraPos, float near, float far, float[] colorScale, float[] colorOffset);
-
-    [DllImport("svrplugin")]
-    private static extern void PvrInitCompositeLayer(string overlayID_str, int id, bool isOES, int overlayType, int vertexNum, float[] vertices, int indexNum, int[] indices, float[] texUV);
-
-    [DllImport("svrplugin")]
-    private static extern void PvrRemoveCompositeLayer(string overlayID_str);
-
-    [DllImport("svrplugin")]
-    internal static extern void PvrSetCompositeLayerRender(string overlayID_str, bool isVisible);
-
-    [DllImport("svrplugin")]
-    internal static extern void PvrSetCompositeLayerRenderQuality(float coefficient);
-    //---------------------------------------------------------------------------------------------
+    private static extern void PvrSetTrackingSpace(int targetSpace);
 
     private enum RenderEvent
 	{
@@ -688,6 +672,7 @@ class SvrPluginAndroid : SvrPlugin
             if (eyes[i].isActiveAndEnabled == false || eye.TextureId == 0 || eye.Side == 0) continue;
             if (eye.imageTransform != null && eye.imageTransform.gameObject.activeSelf == false) continue;
             layerType = eye.ImageType == SvrEye.eType.EglTexture ? (int)TextureType.kTypeImage : (int)TextureType.kTypeTexture;
+            if (overlays.Length > 0) eye.layerDepth = 1;
             layerFlags = eye.layerDepth > 0 || passThruVideo ? (int)LayerFlags.kLayerFlagNone : (int)LayerFlags.kLayerFlagOpaque;
             SvrSetupLayerData(layerCount, (int)eye.Side, eye.TextureId, layerType, layerFlags);
             float[] lowerLeft = { eye.clipLowerLeft.x, eye.clipLowerLeft.y, eye.clipLowerLeft.z, eye.clipLowerLeft.w, eye.uvLowerLeft.x, eye.uvLowerLeft.y };
@@ -698,7 +683,7 @@ class SvrPluginAndroid : SvrPlugin
             layerCount++;
         }
 
-        Debug.LogFormat("Total Layer =  {0}", layerCount);
+        //Debug.LogFormat("Total Layer =  {0}", layerCount);
 
         //for (i = layerCount; i < SvrManager.RenderLayersMax; i++)
         //{
@@ -985,33 +970,8 @@ class SvrPluginAndroid : SvrPlugin
         maxZ = -temp;
     }
 
-    //-----Composite
-    public override void InitCompositeLayerMesh(string overlayID_str, int layerID, bool is_android_oes_texture, int overlayType, int vertexsCount, float[] modelVertexs, int indicesCount, int[] modelIndices, float[] modelUV)
+    public override void SetTrackingSpace(int targetSpace)
     {
-        PvrInitCompositeLayer(overlayID_str,layerID, is_android_oes_texture, overlayType,vertexsCount, modelVertexs, indicesCount, modelIndices, modelUV);
+        PvrSetTrackingSpace(targetSpace);
     }
-
-    public override void DrawCompositeLayer(string overlayID_str, int layerID, int TextureID, IntPtr vkImage, int texture_type, int width, int height,
-                                    float[] modelScale, float[] modelRotation, float[] modelTrans, float[] leftCameraRot, float[] leftCameraPos,
-                                    float[] rightCameraRot, float[] rightCameraPos, float near, float far, float[] colorScale, float[] colorOffset)
-    {
-        PvrSetCompositeLayerParameter(overlayID_str,layerID, TextureID, vkImage,texture_type,
-            width,height, modelScale, modelRotation, modelTrans, leftCameraRot, leftCameraPos, rightCameraRot, 
-            rightCameraPos,near,far,colorScale,colorOffset);
     }
-
-    public override void RemoveCompositeLayer(string overlayID_str)
-    {
-        PvrRemoveCompositeLayer(overlayID_str);
-    }
-
-    public override void SetCompositeLayerRender(string overlayID_str, bool isVisible)
-    {
-        PvrSetCompositeLayerRender(overlayID_str, isVisible);
-    }
-
-    public override void SetCompositeLayerRenderQuality(float coefficient)
-    {
-        PvrSetCompositeLayerRenderQuality(coefficient);
-    }
-}
