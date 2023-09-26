@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "2df55eab",
+    "m_SelectedDeviceId": "d72266e2",
     "m_SelectedPackage": {
-        "deviceId": "2df55eab",
+        "deviceId": "d72266e2",
         "name": "com.pimax.boxworld",
-        "processId": 14361,
+        "processId": 7613,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -197,313 +197,37 @@
         {
             "deviceId": "3891260e",
             "name": "com.Qualcomm.BoxWorld",
-            "processId": 5481,
-            "exited": true
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 5651,
-            "exited": true
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 5869,
-            "exited": true
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 6062,
-            "exited": true
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 6277,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 4820,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 4977,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 5130,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 5313,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 5467,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 5630,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 5803,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 6076,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 6292,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 6480,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 6680,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 7097,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 7266,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 7438,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 8706,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 8884,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 9062,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 9234,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 9408,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 9705,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 4409,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 6722,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 18177,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 18543,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 18781,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 18994,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 20411,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 4147,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 5238,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 4168,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 4485,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 4525,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 11295,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 11493,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 11680,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 11853,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 12036,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 8394,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 11371,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 11749,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 2921,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 3623,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
-            "processId": 3814,
-            "exited": false
-        },
-        {
-            "deviceId": "3891260e",
-            "name": "com.Qualcomm.BoxWorld",
             "processId": 5010,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "3891260e",
             "name": "com.Qualcomm.BoxWorld",
             "processId": 8023,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "3891260e",
             "name": "com.Qualcomm.BoxWorld",
             "processId": 8183,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "3891260e",
             "name": "com.Qualcomm.BoxWorld",
             "processId": 8340,
+            "exited": true
+        },
+        {
+            "deviceId": "3891260e",
+            "name": "com.pimax.usercenter",
+            "processId": 3143,
+            "exited": false
+        },
+        {
+            "deviceId": "3891260e",
+            "name": "com.pimax.storage",
+            "processId": 4792,
             "exited": false
         },
         {
@@ -714,6 +438,18 @@
             "deviceId": "2df55eab",
             "name": "com.pimax.boxworld",
             "processId": 14361,
+            "exited": false
+        },
+        {
+            "deviceId": "d72266e2",
+            "name": "com.pimax.boxworld",
+            "processId": 7220,
+            "exited": false
+        },
+        {
+            "deviceId": "d72266e2",
+            "name": "com.pimax.boxworld",
+            "processId": 7613,
             "exited": false
         }
     ],
