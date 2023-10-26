@@ -8,17 +8,18 @@ public class DisplayHolder : MonoBehaviour
     private int textureId = 0;
 
     public bool isOes = false;
+    public bool isUnityOes = false;
     public int VD_WIDTH = 2880;
     public int VD_HEIGHT = 1600;
 
     #region nativeFunction
     AndroidJavaObject nativeDisplayHolder;
 #if UNITY_ANDROID
-    private int _createVd(bool oesTexture)
+    private int _createVd(bool oesTexture, bool oesUnityTexture)
     {
         if (nativeDisplayHolder != null)
         {
-            return nativeDisplayHolder.Call<int>("createVd", oesTexture);
+            return nativeDisplayHolder.Call<int>("createVd", oesTexture, oesUnityTexture);
         }
         return 0;
     }
@@ -36,8 +37,11 @@ public class DisplayHolder : MonoBehaviour
     void Awake()
     {
         Debug.Log("DisplayHolder ----- Awake");
+
 #if UNITY_ANDROID && !UNITY_EDITOR
-        nativeDisplayHolder = new AndroidJavaObject("com.pimax.vrshell.vd.holder.DisplayHolder");
+        //nativeDisplayHolder = new AndroidJavaObject("com.pimax.vrshell.vd.holder.DisplayHolder");
+        AndroidJavaClass nativeDisplayHolderClass = new AndroidJavaClass("com.pimax.vrshell.vd.holder.DisplayHolder");
+        nativeDisplayHolder = nativeDisplayHolderClass.CallStatic<AndroidJavaObject>("getInstance");
         Debug.Log(nativeDisplayHolder==null?"Start nativeDisplayHolder is null":"Start nativeDisplayHolder success");
 #endif
     }
@@ -60,7 +64,7 @@ public class DisplayHolder : MonoBehaviour
         Debug.Log("DisplayHolder ----- Start");
 #if UNITY_ANDROID
         startupTime = Time.realtimeSinceStartup;
-        textureId = _createVd(isOes);
+        textureId = _createVd(isOes, isUnityOes);
 #endif
         if(isOes)
         {

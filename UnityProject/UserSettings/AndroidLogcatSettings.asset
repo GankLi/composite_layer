@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "d72266e2",
+    "m_SelectedDeviceId": "2df55eab",
     "m_SelectedPackage": {
-        "deviceId": "d72266e2",
+        "deviceId": "2df55eab",
         "name": "com.pimax.boxworld",
-        "processId": 7613,
+        "processId": 6137,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -441,6 +441,18 @@
             "exited": false
         },
         {
+            "deviceId": "2df55eab",
+            "name": "com.pimax.boxworld",
+            "processId": 6588,
+            "exited": false
+        },
+        {
+            "deviceId": "2df55eab",
+            "name": "com.pimax.boxworld",
+            "processId": 6137,
+            "exited": false
+        },
+        {
             "deviceId": "d72266e2",
             "name": "com.pimax.boxworld",
             "processId": 7220,
@@ -504,7 +516,7 @@
         "Behavior": 0
     },
     "m_FilterOptions": {
-        "m_Filter": "Overlay",
+        "m_Filter": "",
         "m_UseRegularExpressions": false,
         "m_MatchCase": false
     },

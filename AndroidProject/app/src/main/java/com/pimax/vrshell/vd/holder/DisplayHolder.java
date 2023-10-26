@@ -56,22 +56,32 @@ public class DisplayHolder {
         }
     };
 
+    public DisplayHolder() {
+        Log.d(TAG, "DisplayHolder()");
+    }
+
     /**
      * Call by Unity Awake
      */
-    public DisplayHolder() {
-        instance = this;
-        Log.d(TAG, "DisplayHolder()");
+    public synchronized static DisplayHolder getInstance() {
+        Log.d(TAG, "getInstance()");
+        if (instance == null) {
+            instance = new DisplayHolder();
+        }
+        return instance;
     }
 
     /**
      * Call by Unity Start
      */
     @SuppressLint("WrongConstant")
-    public int createVd(boolean isOes) {
-        Log.d(TAG, "createVd isOes = " + isOes);
-        isOesTexture = isOes;
-        Log.d(TAG, "Create OESTexture");
+    public int createVd(boolean isOes, boolean isUnityOes) {
+        isOesTexture = isOes|isUnityOes;
+        Log.d(TAG, "createVd isOes = " + isOesTexture);
+        if (isOesTexture && mTextureOES != null) {
+            return mTextureOES.getTextureID();
+        }
+        Log.d(TAG, "Create OESTexture = " + isOesTexture);
         mTextureOES = new GLTextureOES(UnityPlayer.currentActivity, VD_SCREEN_WIDTH, VD_SCREEN_HEIGHT);
         mSurfaceTexture = new SurfaceTexture(mTextureOES.getTextureID());
         mSurfaceTexture.setOnFrameAvailableListener(mCallBack);
@@ -117,7 +127,7 @@ public class DisplayHolder {
         });
 
         // Unity
-        if (isOes) {
+        if (isOesTexture) {
             return mTextureOES.getTextureID();
         } else {
             mUnityTexture = new GLTexture2D(UnityPlayer.currentActivity, VD_SCREEN_WIDTH, VD_SCREEN_HEIGHT);
@@ -156,6 +166,7 @@ public class DisplayHolder {
                 case Surface.ROTATION_0:
                     Matrix.setRotateM(mMVPMatrix, 0, 270, 0, 0, 1);
                     break;
+
                 case Surface.ROTATION_90:
                     Matrix.setIdentityM(mMVPMatrix, 0);
                     break;
