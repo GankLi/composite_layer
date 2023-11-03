@@ -12,6 +12,8 @@ public class DisplayHolder : MonoBehaviour
     public int VD_WIDTH = 2880;
     public int VD_HEIGHT = 1600;
 
+    public GameObject underlayHolder;
+
     #region nativeFunction
     AndroidJavaObject nativeDisplayHolder;
 #if UNITY_ANDROID
@@ -77,6 +79,18 @@ public class DisplayHolder : MonoBehaviour
                     overlays[i].TextureId = textureId;
                     Debug.Log("DisplayHolder ----- Overlay[" + i + "] TextureID = " + textureId);
                 }
+            }
+            Debug.Log("Init UnderlayHolder = " + underlayHolder);
+            Renderer renderer = underlayHolder.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                texture = Texture2D.CreateExternalTexture(VD_WIDTH, VD_HEIGHT, TextureFormat.ARGB32, false, false, (System.IntPtr)textureId);
+                texture.wrapMode = TextureWrapMode.Clamp;
+                texture.filterMode = FilterMode.Bilinear;
+                // 获取材质
+                Material material = renderer.material;
+                material.SetTexture("_MainTex", texture);
+                Debug.Log("Init Renderer Material = " + material);
             }
         } else {
             // entry only once
